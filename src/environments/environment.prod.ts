@@ -1,4 +1,4 @@
 export const environments = {
-  production: false,
+  production: true,
   apiUrl: 'https://content-craft-server.onrender.com',
 }
