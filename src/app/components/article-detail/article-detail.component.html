@@ -1,1 +1,13 @@
-<p>article-detail works!</p>
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="w-full max-w-2xl">
+    <div class="bg-white p-8 rounded-lg shadow-md">
+      <h2 class="text-3xl font-bold mb-4">{{ article.title }}</h2>
+      <div class="prose prose-lg max-w-none">
+        <quill-view-html [content]="article.content"></quill-view-html>
+      </div>
+      <div class="flex justify-end mt-4">
+        <a routerLink="/dashboard" class="text-blue-500 hover:underline">Back to Dashboard</a>
+      </div>
+    </div>
+  </div>
+</div>

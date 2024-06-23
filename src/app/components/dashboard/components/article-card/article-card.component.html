@@ -1,0 +1,14 @@
+<div class="bg-white p-6 rounded-lg shadow-lg">
+  <h2 class="text-2xl font-bold mb-2">{{ article.title }}</h2>
+  <div class="summary-height">
+    <p class="text-gray-700 line-clamp-4">{{ summary }}</p>
+  </div>
+  <div class="flex justify-end mt-4">
+    <a [routerLink]="['/articles', article._id]" class="text-blue-500 hover:underline mr-4">Details</a>
+    <a *ngIf="isAuthor" [routerLink]="['/articles/edit', article._id]" class="text-yellow-500 hover:underline mr-4">Edit</a>
+    <div *ngIf="isAuthor">
+      <button (click)="openConfirmDialog()" class="text-red-500 hover:underline">Delete</button>
+      <app-confirm *ngIf="showConfirmDialog" (confirmed)="onConfirmed($event)"></app-confirm>
+    </div>
+  </div>
+</div>

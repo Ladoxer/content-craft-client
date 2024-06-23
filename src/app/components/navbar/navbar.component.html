@@ -1,0 +1,18 @@
+<nav class="bg-white shadow-md">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <a class="text-2xl font-bold text-gray-800" routerLink="/dashboard">Content Craft</a>
+      </div>
+      <div class="flex items-center">
+        <!-- <span *ngIf="authenticated" class="mr-4 text-gray-600">Welcome, {{ userName }}</span> -->
+        <button *ngIf="authenticated" (click)="logout()" class="btn btn-primary">
+          Logout
+        </button>
+        <a *ngIf="!authenticated" routerLink="/login" class="btn btn-secondary">
+          Login
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

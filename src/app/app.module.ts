@@ -9,6 +9,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ArticleCreateComponent } from './components/article-create/article-create.component';
 import { ArticleEditComponent } from './components/article-edit/article-edit.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { authInterceptor } from './interceptors/auth.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill';
+import { ToastrModule } from 'ngx-toastr';
+import { ArticleCardComponent } from './components/dashboard/components/article-card/article-card.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ConfirmComponent } from './shared/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +27,24 @@ import { ArticleDetailComponent } from './components/article-detail/article-deta
     DashboardComponent,
     ArticleCreateComponent,
     ArticleEditComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    ArticleCardComponent,
+    NavbarComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    QuillModule.forRoot(),
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(withInterceptors([authInterceptor]))
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
